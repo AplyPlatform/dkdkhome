@@ -353,7 +353,7 @@
 DKDK Open API를 사용하시려면 반드시 <code>Token</code>을 API의 파라메터로 입력해야 합니다. 간수에 유의해 주세요.
 </aside>
 <h1 id='6ff3871f7f'>친구 요청/수락/헤어지기</h1><h2 id='8b531db03e'>친구 요청하기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"action":"request", "user_uuid" : "MY_UUID", "friend_nickname" : "FRIEND_NICKNAME"}'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"action":"request", "user_uuid" : "MY_UUID", "friend_nickname" : "FRIEND_NICKNAME"}'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'request';
@@ -366,7 +366,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -382,7 +382,7 @@ echo $response;
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"action"</span><span class="p">:</span> <span class="s2">"request"</span><span class="p">,</span> <span class="s2">"user_uuid"</span> <span class="p">:</span> <span class="s2">"MY_UUID"</span><span class="p">,</span> <span class="s2">"friend_nickname"</span> <span class="p">:</span> <span class="s2">"FRIEND_NICKNAME"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -415,7 +415,7 @@ echo $response;
     <span class="s">'user_uuid'</span> <span class="p">:</span> <span class="s">'USER_UUID'</span>
     <span class="s">'friend_nickname'</span> <span class="p">:</span> <span class="s">"FRIEND_NICKNAME"</span>
 <span class="p">}</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -432,7 +432,7 @@ echo $response;
 </span></code></pre>
 <p>친구요청을 전송합니다.</p>
 <h3 id='http'>HTTP 요청</h3>
-<p><code>POST http://apis.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://apis.dkdk.io/v2/dkdk</code></p>
 <h3 id='url'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -462,7 +462,7 @@ echo $response;
 Token의 노출에 유의하세요!
 </aside>
 <h2 id='0039c95ce3'>친구요청 수락하기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"accept", "friend_uuid" : "FRIEND_UUID"}'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"accept", "friend_uuid" : "FRIEND_UUID"}'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'accept';
@@ -475,7 +475,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -491,7 +491,7 @@ echo $response;
 
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"action"</span><span class="p">:</span> <span class="s2">"accept"</span><span class="p">,</span> <span class="s2">"user_uuid"</span> <span class="p">:</span> <span class="s2">"USER_UUID"</span><span class="p">,</span> <span class="s2">"friend_uuid"</span> <span class="p">:</span> <span class="s2">"FRIEND_UUID"</span> <span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -524,7 +524,7 @@ echo $response;
     <span class="s">'user_uuid'</span> <span class="p">:</span> <span class="s">'USER_UUID'</span>
     <span class="s">'friend_uuid'</span> <span class="p">:</span> <span class="s">'FRIEND_UUID'</span>
 <span class="p">}</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -542,7 +542,7 @@ echo $response;
 </span></code></pre>
 <p>친구요청을 수락합니다.</p>
 <h3 id='http-2'>HTTP 요청</h3>
-<p><code>POST http://api.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://api.dkdk.io/v2/dkdk</code></p>
 <h3 id='url-2'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -568,7 +568,7 @@ echo $response;
 </tr>
 </tbody></table>
 <h2 id='0cdb74fef6'>친구와 헤어지기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"bye", "friend_uuid" : "FRIEND_UUID"'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"bye", "friend_uuid" : "FRIEND_UUID"'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'bye';
@@ -581,7 +581,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -597,7 +597,7 @@ echo $response;
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"action"</span><span class="p">:</span> <span class="s2">"bye"</span><span class="p">,</span> <span class="s2">"user_uuid"</span> <span class="p">:</span> <span class="s2">"USER_UUID"</span><span class="p">,</span> <span class="s2">"friend_uuid"</span> <span class="p">:</span> <span class="s2">"FRIEND_UUID"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -631,7 +631,7 @@ echo $response;
     <span class="s">"friend_uuid"</span> <span class="p">:</span> <span class="s">"FRIEND_UUID"</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -647,7 +647,7 @@ echo $response;
 </span></code></pre>
 <p>친구와 헤어지기 요청을 전송합니다.</p>
 <h3 id='http-3'>HTTP 요청</h3>
-<p><code>POST http://apis.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://apis.dkdk.io/v2/dkdk</code></p>
 <h3 id='url-3'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -673,7 +673,7 @@ echo $response;
 </tr>
 </tbody></table>
 <h1 id='19d7db93b7'>두근거림 보내고 받기</h1><h2 id='1c5ccfa237'>두근거림 패턴 보내기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"touch", "friend_uuids":["FRIEND_UUID_1","FRIEND_UUID_2"], "pattern_uuid" : "PATTERN_UUID"}'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"touch", "friend_uuids":["FRIEND_UUID_1","FRIEND_UUID_2"], "pattern_uuid" : "PATTERN_UUID"}'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'touch';
@@ -687,7 +687,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -703,7 +703,7 @@ echo $response;
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"action"</span><span class="p">:</span> <span class="s2">"touch"</span><span class="p">,</span> <span class="s2">"user_uuid"</span> <span class="p">:</span> <span class="s2">"USER_UUID"</span><span class="p">,</span> <span class="s2">"pattern_uuid"</span> <span class="p">:</span> <span class="s2">"PATTERN_UUID"</span><span class="p">,</span> <span class="s2">"friend_uuids"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"FRIEND_UUID_1"</span><span class="p">,</span> <span class="s2">"FRIEND_UUID_2"</span><span class="p">]};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -738,7 +738,7 @@ echo $response;
     <span class="s">'friend_uuids'</span> <span class="p">:</span> <span class="p">[</span><span class="s">'FRIEND_UUID_1'</span><span class="p">,</span> <span class="s">'FRIEND_UUID-2'</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -754,7 +754,7 @@ echo $response;
 </span></code></pre>
 <p>친구에게 나의 두근거림을 전송합니다.</p>
 <h3 id='http-4'>HTTP 요청</h3>
-<p><code>POST http://apis.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://apis.dkdk.io/v2/dkdk</code></p>
 <h3 id='url-4'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -784,7 +784,7 @@ echo $response;
 </tr>
 </tbody></table>
 <h2 id='2af7cbece5'>두근거림 전송을 중지하기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"up", "friend_uuids":["FRIEND_UUID_1", "FRIEND_UUID_2"}'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"up", "friend_uuids":["FRIEND_UUID_1", "FRIEND_UUID_2"}'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'up';
@@ -797,7 +797,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -813,7 +813,7 @@ echo $response;
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"action"</span><span class="p">:</span> <span class="s2">"up"</span><span class="p">,</span> <span class="s2">"user_uuid"</span> <span class="p">:</span> <span class="s2">"USER_UUID"</span><span class="p">,</span> <span class="s2">"friend_uuids"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"FRIEND_UUID_1"</span><span class="p">,</span> <span class="s2">"FRIEND_UUID_2"</span><span class="p">]};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -847,7 +847,7 @@ echo $response;
     <span class="s">'friend_uuids'</span> <span class="p">:</span> <span class="p">[</span><span class="s">'FRIEND_UUID_1'</span><span class="p">,</span> <span class="s">'FRIEND_UUID_2'</span><span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -863,7 +863,7 @@ echo $response;
 </span></code></pre>
 <p>친구에게 보내던 두근거림의 전송을 중지합니다</p>
 <h3 id='http-5'>HTTP 요청</h3>
-<p><code>POST http://apis.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://apis.dkdk.io/v2/dkdk</code></p>
 <h3 id='url-5'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -889,7 +889,7 @@ echo $response;
 </tr>
 </tbody></table>
 <h1 id='4a1e1882b6'>두근거림 등록/가져오기/삭제하기</h1><h2 id='5d0726fbbc'>두근거림 패턴 등록하기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"patternupload", "pattern":[0,100,5,100], "pattern_name" : "MY PATTERN NAME"}'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"patternupload", "pattern":[0,100,5,100], "pattern_name" : "MY PATTERN NAME"}'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'patternupload';
@@ -903,7 +903,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -919,7 +919,7 @@ echo $response;
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"action"</span><span class="p">:</span> <span class="s2">"patternupload"</span><span class="p">,</span> <span class="s2">"user_uuid"</span> <span class="p">:</span> <span class="s2">"USER_UUID"</span><span class="p">,</span> <span class="s2">"pattern"</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span> <span class="s2">"pattern_name"</span> <span class="p">:</span> <span class="s2">"MY PATTERN NAME"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -954,7 +954,7 @@ echo $response;
     <span class="s">'pattern_name'</span> <span class="p">:</span> <span class="s">'MY PATTERN NAME'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -970,7 +970,7 @@ echo $response;
 </span></code></pre>
 <p>나의 두근거림 패턴을 등록합니다.</p>
 <h3 id='http-6'>HTTP 요청</h3>
-<p><code>POST http://apis.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://apis.dkdk.io/v2/dkdk</code></p>
 <h3 id='url-6'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1000,7 +1000,7 @@ echo $response;
 </tr>
 </tbody></table>
 <h2 id='bff49644b9'>두근거림 패턴 가져오기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"pattern", "friend_uuid":"FRIEND_UUID", "pattern_uuid":"PATTERN_UUID"}'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"pattern", "friend_uuid":"FRIEND_UUID", "pattern_uuid":"PATTERN_UUID"}'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'pattern';
@@ -1014,7 +1014,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1030,7 +1030,7 @@ echo $response;
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"user_uuid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span> <span class="s2">"action"</span><span class="p">:</span><span class="s2">"pattern"</span><span class="p">,</span> <span class="s2">"friend_uuid"</span><span class="p">:</span><span class="s2">"FRIEND_UUID"</span><span class="p">,</span> <span class="s2">"pattern_uuid"</span><span class="p">:</span><span class="s2">"PATTERN_UUID"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1065,7 +1065,7 @@ echo $response;
     <span class="s">'pattern_uuid'</span> <span class="p">:</span> <span class="s">'PATTERN_UUID'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1084,7 +1084,7 @@ echo $response;
 </span></code></pre>
 <p>친구의 두근거림 패턴을 내려 받습니다.</p>
 <h3 id='http-7'>HTTP 요청</h3>
-<p><code>POST http://apis.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://apis.dkdk.io/v2/dkdk</code></p>
 <h3 id='url-7'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1134,7 +1134,7 @@ echo $response;
 </tr>
 </tbody></table>
 <h2 id='f44375c861'>두근거림 패턴 삭제하기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"patternremove", "pattern_uuid":"PATTERN_UUID"}'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"patternremove", "pattern_uuid":"PATTERN_UUID"}'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'patternremove';
@@ -1147,7 +1147,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1163,7 +1163,7 @@ echo $response;
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"user_uuid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span> <span class="s2">"action"</span><span class="p">:</span><span class="s2">"patternremove"</span><span class="p">,</span> <span class="s2">"pattern_uuid"</span><span class="p">:</span><span class="s2">"PATTERN_UUID"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1197,7 +1197,7 @@ echo $response;
     <span class="s">'pattern_uuid'</span> <span class="p">:</span> <span class="s">'PATTERN_UUID'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1213,7 +1213,7 @@ echo $response;
 </span></code></pre>
 <p>나의 두근거림 패턴을 삭제합니다.</p>
 <h3 id='http-8'>HTTP 요청</h3>
-<p><code>POST http://apis.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://apis.dkdk.io/v2/dkdk</code></p>
 <h3 id='url-8'>URL 파라메터</h3>
 <table><thead>
 <tr>
@@ -1239,7 +1239,7 @@ echo $response;
 </tr>
 </tbody></table>
 <h1 id='221cebe4a5'>두근거림 기록 받기</h1><h2 id='df2ddf5da3'>주고받은 두근거림(하트)수 받아오기</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"history", "friend_uuid" : "FRIEND_UUID"}'</span> http://api.dkdk.io/v1/dkdk
+curl -H <span class="s2">"dkdk-token: DKDKTOKEN"</span> -H <span class="s2">"Content-type: application/json"</span> -X POST -d <span class="s1">'{"user_uuid":"USER_UUID", "action":"history", "friend_uuid" : "FRIEND_UUID"}'</span> http://api.dkdk.io/v2/dkdk
 
 </code></pre><pre class="highlight php tab-php"><code>
 $body['action'] = 'history';
@@ -1252,7 +1252,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1268,7 +1268,7 @@ echo $response;
 </code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="kd">var</span> <span class="nx">jdata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"action"</span><span class="p">:</span> <span class="s2">"history"</span><span class="p">,</span> <span class="s2">"user_uuid"</span> <span class="p">:</span> <span class="s2">"USER_UUID"</span><span class="p">,</span> <span class="s2">"friend_uuid"</span> <span class="p">:</span> <span class="s2">"FRIEND_UUID"</span><span class="p">};</span>
 
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v1/dkdk"</span><span class="p">,</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span><span class="na">url</span> <span class="p">:</span> <span class="s2">"https://api.dkdk.io/v2/dkdk"</span><span class="p">,</span>
        <span class="na">dataType</span> <span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
        <span class="na">contentType</span> <span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
        <span class="na">crossDomain</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1302,7 +1302,7 @@ echo $response;
     <span class="s">'friend_uuid'</span> <span class="p">:</span> <span class="s">'FRIEND_UUID'</span>
 <span class="p">}</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v1/dkdk'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://api.dkdk.io/v2/dkdk'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                          <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
@@ -1338,7 +1338,7 @@ echo $response;
 </span></code></pre>
 <p>나의 친구가 주고받은 두근거림(하트)의 수를 확인합니다.</p>
 <h3 id='http-9'>HTTP 요청</h3>
-<p><code>POST http://apis.dkdk.io/v1/dkdk</code></p>
+<p><code>POST http://apis.dkdk.io/v2/dkdk</code></p>
 <h3 id='url-9'>URL 파라메터</h3>
 <table><thead>
 <tr>

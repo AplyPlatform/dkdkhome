@@ -67,7 +67,7 @@ DKDK Open API를 사용하시려면 반드시 <code>Token</code>을 API의 파�
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"action":"request", "user_uuid" : "MY_UUID", "friend_nickname" : "FRIEND_NICKNAME"}' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"action":"request", "user_uuid" : "MY_UUID", "friend_nickname" : "FRIEND_NICKNAME"}' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -83,7 +83,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -102,7 +102,7 @@ echo $response;
 
 var jdata = {"action": "request", "user_uuid" : "MY_UUID", "friend_nickname" : "FRIEND_NICKNAME"};
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -138,7 +138,7 @@ data = {
     'user_uuid' : 'USER_UUID'
     'friend_nickname' : "FRIEND_NICKNAME"
 }
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -159,7 +159,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v1/dkdk`
+`POST http://apis.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -179,7 +179,7 @@ Token의 노출에 유의하세요!
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"accept", "friend_uuid" : "FRIEND_UUID"}' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"accept", "friend_uuid" : "FRIEND_UUID"}' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -195,7 +195,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -214,7 +214,7 @@ echo $response;
 
 var jdata = {"action": "accept", "user_uuid" : "USER_UUID", "friend_uuid" : "FRIEND_UUID" };
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -250,7 +250,7 @@ data = {
     'user_uuid' : 'USER_UUID'
     'friend_uuid' : 'FRIEND_UUID'
 }
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -271,7 +271,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://api.dkdk.io/v1/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -286,7 +286,7 @@ friend_uuid | 친구요청 전송에 성공했을때 수신한 friend_uuid를 �
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"bye", "friend_uuid" : "FRIEND_UUID"' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"bye", "friend_uuid" : "FRIEND_UUID"' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -302,7 +302,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -321,7 +321,7 @@ echo $response;
 
 var jdata = {"action": "bye", "user_uuid" : "USER_UUID", "friend_uuid" : "FRIEND_UUID"};
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -358,7 +358,7 @@ data = {
     "friend_uuid" : "FRIEND_UUID"
 }
 
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -378,7 +378,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v1/dkdk`
+`POST http://apis.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -397,7 +397,7 @@ friend_uuid | 친구요청 전송에 성공했을때 수신한 user_uuid를 입�
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"touch", "friend_uuids":["FRIEND_UUID_1","FRIEND_UUID_2"], "pattern_uuid" : "PATTERN_UUID"}' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"touch", "friend_uuids":["FRIEND_UUID_1","FRIEND_UUID_2"], "pattern_uuid" : "PATTERN_UUID"}' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -414,7 +414,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -433,7 +433,7 @@ echo $response;
 
 var jdata = {"action": "touch", "user_uuid" : "USER_UUID", "pattern_uuid" : "PATTERN_UUID", "friend_uuids" : ["FRIEND_UUID_1", "FRIEND_UUID_2"]};
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -471,7 +471,7 @@ data = {
     'friend_uuids' : ['FRIEND_UUID_1', 'FRIEND_UUID-2']
 }
 
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -491,7 +491,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v1/dkdk`
+`POST http://apis.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -509,7 +509,7 @@ pattern_uuid | 두근거림의 패턴 pattern_uuid를 입력합니다.(두근거
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"up", "friend_uuids":["FRIEND_UUID_1", "FRIEND_UUID_2"}' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"up", "friend_uuids":["FRIEND_UUID_1", "FRIEND_UUID_2"}' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -525,7 +525,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -544,7 +544,7 @@ echo $response;
 
 var jdata = {"action": "up", "user_uuid" : "USER_UUID", "friend_uuids" : ["FRIEND_UUID_1", "FRIEND_UUID_2"]};
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -581,7 +581,7 @@ data = {
     'friend_uuids' : ['FRIEND_UUID_1', 'FRIEND_UUID_2']
 }
 
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -601,7 +601,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v1/dkdk`
+`POST http://apis.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -620,7 +620,7 @@ friend_uuids | 두근거림을 전송하던 친구들의 user_uuid (배열)
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"patternupload", "pattern":[0,100,5,100], "pattern_name" : "MY PATTERN NAME"}' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"patternupload", "pattern":[0,100,5,100], "pattern_name" : "MY PATTERN NAME"}' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -637,7 +637,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -656,7 +656,7 @@ echo $response;
 
 var jdata = {"action": "patternupload", "user_uuid" : "USER_UUID", "pattern" : [0,100,5,100], "pattern_name" : "MY PATTERN NAME"};
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -694,7 +694,7 @@ data = {
     'pattern_name' : 'MY PATTERN NAME'
 }
 
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -714,7 +714,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v1/dkdk`
+`POST http://apis.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -732,7 +732,7 @@ pattern_name | 패턴의 이름을 입력합니다.
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"pattern", "friend_uuid":"FRIEND_UUID", "pattern_uuid":"PATTERN_UUID"}' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"pattern", "friend_uuid":"FRIEND_UUID", "pattern_uuid":"PATTERN_UUID"}' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -749,7 +749,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -768,7 +768,7 @@ echo $response;
 
 var jdata = {"user_uuid":"USER_UUID", "action":"pattern", "friend_uuid":"FRIEND_UUID", "pattern_uuid":"PATTERN_UUID"};
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -806,7 +806,7 @@ data = {
     'pattern_uuid' : 'PATTERN_UUID'
 }
 
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -829,7 +829,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v1/dkdk`
+`POST http://apis.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -855,7 +855,7 @@ pattern_name | 두근거림 패턴의 이름
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"patternremove", "pattern_uuid":"PATTERN_UUID"}' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"patternremove", "pattern_uuid":"PATTERN_UUID"}' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -871,7 +871,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -890,7 +890,7 @@ echo $response;
 
 var jdata = {"user_uuid":"USER_UUID", "action":"patternremove", "pattern_uuid":"PATTERN_UUID"};
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -927,7 +927,7 @@ data = {
     'pattern_uuid' : 'PATTERN_UUID'
 }
 
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -947,7 +947,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v1/dkdk`
+`POST http://apis.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -966,7 +966,7 @@ pattern_uuid | 삭제할 두근거림 패턴의 pattern_uuid
 
 ```shell
 
-curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"history", "friend_uuid" : "FRIEND_UUID"}' http://api.dkdk.io/v1/dkdk
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"history", "friend_uuid" : "FRIEND_UUID"}' http://api.dkdk.io/v2/dkdk
 
 ```
 
@@ -982,7 +982,7 @@ $headers = array(
 );
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v2/dkdk');
 curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
 curl_setopt($ch, CURLOPT_POST,    true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -1001,7 +1001,7 @@ echo $response;
 
 var jdata = {"action": "history", "user_uuid" : "USER_UUID", "friend_uuid" : "FRIEND_UUID"};
 
-$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+$.ajax({url : "https://api.dkdk.io/v2/dkdk",
        dataType : "json",
        contentType : "application/json",
        crossDomain: true,
@@ -1038,7 +1038,7 @@ data = {
     'friend_uuid' : 'FRIEND_UUID'
 }
 
-url = 'https://api.dkdk.io/v1/dkdk'
+url = 'https://api.dkdk.io/v2/dkdk'
 response = requests.post(url, headers=headers,
                          data=json.dumps(data))
 response.raise_for_status()
@@ -1078,7 +1078,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v1/dkdk`
+`POST http://apis.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
