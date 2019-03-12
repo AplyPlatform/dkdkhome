@@ -9,11 +9,11 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <div class="fb-like" data-href="https://www.facebook.com/dkdkheart" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-  - <a href='http://dkdk.io/dev/'>DKDK 개발자홈</a>
-  - <a href='http://facebook.com/dkdkheart'>DKDK 페이스북</a>
-  - <a href='http://dkdk.io/'>DKDK 홈</a>
+  - <a href='https://top.dkdk.io/dev/'>DKDK 개발자홈</a>
+  - <a href='https://facebook.com/dkdkheart'>DKDK 페이스북</a>
+  - <a href='https://dkdk.io/'>DKDK 홈</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
-  - © 2019 <a href='http://aply.biz'>APLY Inc.</a>
+  - © 2019 <a href='httpi://aply.biz'>APLY Inc.</a>
 includes:
   - errors
 
