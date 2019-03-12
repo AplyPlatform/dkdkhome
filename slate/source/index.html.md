@@ -387,7 +387,7 @@ response.raise_for_status()
 dkdk-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 user_uuid | 개발자 등록시 부여받은 user_uuid를 입력합니다.
 action | 'bye'을 입력합니다.
-friend_uuid | 친구요청 전송에 성공했을때 수신한 friend_uuid를 입력합니다.
+friend_uuid | 친구요청 전송에 성공했을때 수신한 user_uuid를 입력합니다.
 
 
 #두근거림 보내고 받기
@@ -957,3 +957,144 @@ dkdk-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
 user_uuid | 개발자 등록시 부여받은 user_uuid를 입력합니다.
 action | 'patternremove' 입력합니다.
 pattern_uuid | 삭제할 두근거림 패턴의 pattern_uuid
+
+
+#두근거림 기록 받기
+
+## 주고받은 두근거림(하트)수 받아오기
+
+
+```shell
+
+curl -H "dkdk-token: DKDKTOKEN" -H "Content-type: application/json" -X POST -d '{"user_uuid":"USER_UUID", "action":"history", "friend_uuid" : "FRIEND_UUID"}' http://api.dkdk.io/v1/dkdk
+
+```
+
+```php
+
+$body['action'] = 'history';
+$body['user_uuid'] = 'USER_UUID';
+$body['friend_uuid'] = 'FRIEND_UUID';
+
+$headers = array(
+        'Content-Type: application/json',
+        'dkdk-token: DKDKTOKEN'
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.dkdk.io/v1/dkdk');
+curl_setopt($ch, CURLOPT_HTTPHEADER,  $headers);
+curl_setopt($ch, CURLOPT_POST,    true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($body));
+$response = curl_exec($ch);
+//$json_list= json_decode($response, true);
+curl_close($ch);
+
+echo $response;
+
+
+```
+
+```javascript
+
+var jdata = {"action": "history", "user_uuid" : "USER_UUID", "friend_uuid" : "FRIEND_UUID"};
+
+$.ajax({url : "https://api.dkdk.io/v1/dkdk",
+       dataType : "json",
+       contentType : "application/json",
+       crossDomain: true,
+       cache : false,
+       data : JSON.stringify(jdata),
+       type : "POST",
+       async: false,
+       beforeSend: function(request) {
+          request.setRequestHeader("dkdk-token", "DKDKTOKEN");
+        },
+       success : function(r) {
+         console.log(JSON.stringify(r));
+         if(r.result == "success") {
+           //r.data;
+         }
+       },
+       error:function(request,status,error){
+           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       }
+});
+
+```
+
+```python
+
+import requests
+headers = {
+    'Content-Type': 'application/json',
+    'dkdk-token' : 'DKDKTOKEN'
+}
+data = {
+    'action': 'history',
+    'user_uuid' : 'USER_UUID',
+    'friend_uuid' : 'FRIEND_UUID'
+}
+
+url = 'https://api.dkdk.io/v1/dkdk'
+response = requests.post(url, headers=headers,
+                         data=json.dumps(data))
+response.raise_for_status()
+'response.json()
+
+```
+
+> 상기의 명령은 아래와 같이 JSON 구조로 응답합니다:
+
+```json
+{
+ "result" : "success",
+ "sentdata" : [
+{
+  "count":"5",
+  "time":"2018-03-27 22:47:30"
+},
+{
+  "count":"12",
+  "time":"2018-03-28 01:04:45"
+}
+ ],
+ "recvdata" : [
+{
+  "count":"37",
+  "time":"2018-03-27 22:47:30"
+},
+{
+  "count":"83",
+  "time":"2018-03-28 01:04:45"
+}
+ ]
+}
+```
+
+나의 친구가 주고받은 두근거림(하트)의 수를 확인합니다.
+
+### HTTP 요청
+
+`POST http://apis.dkdk.io/v1/dkdk`
+
+### URL 파라메터
+
+파라메터 | 설명
+--------- | -----------
+dkdk-token | 부여받은 개발자 Token값을 헤더에 입력합니다.
+user_uuid | 개발자 등록시 부여받은 user_uuid를 입력합니다.
+action | 'history'를 입력합니다.
+friend_uuid | 친구의 user_uuid를 입력합니다.
+
+
+### 응답
+
+파라메터 | 설명
+--------- | -----------
+sentdata | 보낸 두근거림 수 정보가 담긴 배열
+recvdata | 받은 두근거림 수 정보가 담긴 배열
+count | 두근거림 수
+time | 두근거림을 보내거나 받은 시각
