@@ -53,7 +53,7 @@ search: true
 DKDK Open API는 DKDK 개발자 Token을 파라메터로 입력해야 사용하실 수 있습니다.
 아래 경로에서 먼저 개발자Token을 발급 받으세요.
 
-[DKDK 개발자Token 발급](http://dev.dkdk.io/dev/register/index.html).
+[DKDK 개발자Token 발급](https://dkdk.io/dev).
 
 발급받은 Token의 사용방법은 각 Open API의 설명을 참고해 주세요.
 
@@ -159,7 +159,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v2/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -378,7 +378,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v2/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -491,7 +491,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v2/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -601,7 +601,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v2/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -714,7 +714,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v2/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -829,7 +829,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v2/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -947,7 +947,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v2/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
@@ -1078,7 +1078,7 @@ response.raise_for_status()
 
 ### HTTP 요청
 
-`POST http://apis.dkdk.io/v2/dkdk`
+`POST http://api.dkdk.io/v2/dkdk`
 
 ### URL 파라메터
 
