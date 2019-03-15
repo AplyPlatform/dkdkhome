@@ -6,6 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - php
   - javascript
   - python
+  - http
 
 toc_footers:
   - <div class="fb-like" data-href="https://www.facebook.com/dkdkheart" data-width="100" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
@@ -1098,3 +1099,205 @@ sentdata | 보낸 두근거림 수 정보가 담긴 배열
 recvdata | 받은 두근거림 수 정보가 담긴 배열
 count | 두근거림 수
 time | 두근거림을 보내거나 받은 시각
+
+
+
+#친구요청/터치/터치업 신호받기
+
+## 친구요청 받기
+
+```http
+
+POST / HTTP/1.1
+Host: YOUR-HOST-NAME
+Accept: application/json
+User-Agent: DKDK Service
+Content-Type: application/json
+Connection: close
+
+{
+  "state":"request",
+  "from":"USER_NICKNAME",
+  "fromid":"USER_UUID",
+  "curdate":"2014-03-01 15:00:00"
+}
+
+```
+> JSON 구조로 송신합니다:
+
+```json
+
+  //ANDROID, iOS
+  {
+    "mstate":"request",
+    "mfrom":"USER_NICKNAME",
+    "mmuuid":"USER_UUID",
+    "curdate":"2014-03-01 15:00:00"
+  }
+
+  //TIZEN, HTTP SERVER
+  {
+    "state":"request",
+    "from":"USER_NICKNAME",
+    "fromid":"USER_UUID",
+    "curdate":"2014-03-01 15:00:00"
+  }
+
+```
+
+지인으로 부터 친구요청을 받습니다.
+
+### 친구요청 수신 데이터 (ANDROID, iOS)
+
+파라메터 | 설명
+--------- | -----------
+mstate | 'request'
+mfrom | 친구의 닉네임
+mmuuid | 친구의 USER_UUID
+curdate | 친구요청 송신 시각
+
+### 친구요청 수신 데이터 (TIZEN, HTTP SERVER)
+
+파라메터 | 설명
+--------- | -----------
+state | 'request'
+from | 친구의 닉네임
+fromid | 친구의 USER_UUID
+curdate | 친구요청 송신 시각
+
+
+
+## 하트터치 신호받기
+
+```http
+
+POST / HTTP/1.1
+Host: YOUR-HOST-NAME
+Accept: application/json
+Content-Type: application/json
+User-Agent: DKDK Service
+Connection: close
+
+{
+  "state":"touch",
+  "from":"USER_NICKNAME",
+  "fromid":"USER_UUID",
+  "pattern_uuid":"PATTERN_UUID",
+  "curdate":"2014-03-01 15:00:00"
+}
+
+```
+> JSON 구조로 송신합니다:
+
+```json
+
+  //ANDROID, iOS
+  {
+    "mstate":"touch",
+    "mfrom":"USER_UUID",
+    "muuid":"USER_UUID",
+    "mid":"USER_NICKNAME",
+    "pattern_uuid":"PATTERN_UUID",
+    "curdate":"2014-03-01 15:00:00"
+  }
+
+  //TIZEN, HTTP SERVER
+  {
+    "state":"touch",
+    "from":"USER_NICKNAME",
+    "fromid":"USER_UUID",
+    "pattern_uuid":"PATTERN_UUID",
+    "curdate":"2014-03-01 15:00:00"
+  }
+
+```
+
+친구가 하트를 터치하면 이 신호를 받습니다.
+
+### 하트터치 수신 데이터 (ANDROID, iOS)
+
+파라메터 | 설명
+--------- | -----------
+mstate | 'touch'
+mfrom | 친구의 USER_UUID
+mid | 친구의 닉네임
+mmuuid | 친구의 USER_UUID
+pattern_uuid | 친구의 패턴 UUID
+curdate | 하트터치 송신 시각
+
+### 하트터치 수신 데이터 (TIZEN, HTTP SERVER)
+
+파라메터 | 설명
+--------- | -----------
+state | 'touch'
+from | 친구의 닉네임
+fromid | 친구의 USER_UUID
+pattern_uuid | 친구의 패턴 UUID
+curdate | 하트터치 송신 시각
+
+
+
+
+## 하트터치업 신호받기
+
+```http
+
+POST / HTTP/1.1
+Host: YOUR-HOST-NAME
+Accept: application/json
+Content-Type: application/json
+User-Agent: DKDK Service
+Connection: close
+
+{
+  "state":"up",
+  "from":5,
+  "fromid":"USER_UUID",
+  "curdate":"2014-03-01 15:00:00"
+}
+
+```
+> JSON 구조로 송신합니다:
+
+```json
+
+  //ANDROID, iOS
+  {
+    "mstate":"up",
+    "mfrom":5,
+    "muuid":"USER_UUID",
+    "mid":"USER_NICKNAME",
+    "pattern_uuid":"PATTERN_UUID",
+    "curdate":"2014-03-01 15:00:00"
+  }
+
+  //TIZEN, HTTP SERVER
+  {
+    "state":"up",
+    "from":5,
+    "fromid":"USER_UUID",
+    "pattern_uuid":"PATTERN_UUID",
+    "curdate":"2014-03-01 15:00:00"
+  }
+
+```
+
+친구가 터치중인 하트에서 손을 떼면 이 신호를 받습니다.
+
+### 하트터치업 수신 데이터 (ANDROID, iOS)
+
+파라메터 | 설명
+--------- | -----------
+mstate | 'up'
+mfrom | 터치부터 터치업까지의 두근거림 수
+mmuuid | 친구의 USER_UUID
+curdate | 신호 송신 시각
+
+### 하트터치업 수신 데이터 (TIZEN, HTTP SERVER)
+
+파라메터 | 설명
+--------- | -----------
+state | 'up'
+from | 터치부터 터치업까지의 두근거림 수
+fromid | 친구의 USER_UUID
+curdate | 신호 송신 시각

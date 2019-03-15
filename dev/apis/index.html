@@ -229,7 +229,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;python&quot;,&quot;http&quot;]">
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -251,6 +251,7 @@
               <a href="#" data-language-name="php">php</a>
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="http">http</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -307,6 +308,20 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#df2ddf5da3" class="toc-h2 toc-link" data-title="">주고받은 두근거림(하트)수 받아오기</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#f64af12b44" class="toc-h1 toc-link" data-title="">친구요청/터치/터치업 신호받기</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#ebaf35304e" class="toc-h2 toc-link" data-title="">친구요청 받기</a>
+                  </li>
+                  <li>
+                    <a href="#382c66be8d" class="toc-h2 toc-link" data-title="">하트터치 신호받기</a>
+                  </li>
+                  <li>
+                    <a href="#368e85a110" class="toc-h2 toc-link" data-title="">하트터치업 신호받기</a>
                   </li>
               </ul>
           </li>
@@ -1387,6 +1402,283 @@ echo $response;
 <td>두근거림을 보내거나 받은 시각</td>
 </tr>
 </tbody></table>
+<h1 id='f64af12b44'>친구요청/터치/터치업 신호받기</h1><h2 id='ebaf35304e'>친구요청 받기</h2><pre class="highlight http tab-http"><code><span class="err">
+</span><span class="nf">POST</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">YOUR-HOST-NAME</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">User-Agent</span><span class="p">:</span> <span class="s">DKDK Service</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"request"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="s2">"USER_NICKNAME"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fromid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>JSON 구조로 송신합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+  </span><span class="err">//ANDROID,</span><span class="w"> </span><span class="err">iOS</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"mstate"</span><span class="p">:</span><span class="s2">"request"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mfrom"</span><span class="p">:</span><span class="s2">"USER_NICKNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mmuuid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+  </span><span class="err">//TIZEN,</span><span class="w"> </span><span class="err">HTTP</span><span class="w"> </span><span class="err">SERVER</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"request"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"from"</span><span class="p">:</span><span class="s2">"USER_NICKNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fromid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>지인으로 부터 친구요청을 받습니다.</p>
+<h3 id='android-ios'>친구요청 수신 데이터 (ANDROID, iOS)</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mstate</td>
+<td>&#39;request&#39;</td>
+</tr>
+<tr>
+<td>mfrom</td>
+<td>친구의 닉네임</td>
+</tr>
+<tr>
+<td>mmuuid</td>
+<td>친구의 USER_UUID</td>
+</tr>
+<tr>
+<td>curdate</td>
+<td>친구요청 송신 시각</td>
+</tr>
+</tbody></table>
+<h3 id='tizen-http-server'>친구요청 수신 데이터 (TIZEN, HTTP SERVER)</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>state</td>
+<td>&#39;request&#39;</td>
+</tr>
+<tr>
+<td>from</td>
+<td>친구의 닉네임</td>
+</tr>
+<tr>
+<td>fromid</td>
+<td>친구의 USER_UUID</td>
+</tr>
+<tr>
+<td>curdate</td>
+<td>친구요청 송신 시각</td>
+</tr>
+</tbody></table>
+<h2 id='382c66be8d'>하트터치 신호받기</h2><pre class="highlight http tab-http"><code><span class="err">
+</span><span class="nf">POST</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">YOUR-HOST-NAME</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">User-Agent</span><span class="p">:</span> <span class="s">DKDK Service</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"touch"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="s2">"USER_NICKNAME"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fromid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"pattern_uuid"</span><span class="p">:</span><span class="s2">"PATTERN_UUID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>JSON 구조로 송신합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+  </span><span class="err">//ANDROID,</span><span class="w"> </span><span class="err">iOS</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"mstate"</span><span class="p">:</span><span class="s2">"touch"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mfrom"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"muuid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mid"</span><span class="p">:</span><span class="s2">"USER_NICKNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pattern_uuid"</span><span class="p">:</span><span class="s2">"PATTERN_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+  </span><span class="err">//TIZEN,</span><span class="w"> </span><span class="err">HTTP</span><span class="w"> </span><span class="err">SERVER</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"touch"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"from"</span><span class="p">:</span><span class="s2">"USER_NICKNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fromid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pattern_uuid"</span><span class="p">:</span><span class="s2">"PATTERN_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>친구가 하트를 터치하면 이 신호를 받습니다.</p>
+<h3 id='android-ios-2'>하트터치 수신 데이터 (ANDROID, iOS)</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mstate</td>
+<td>&#39;touch&#39;</td>
+</tr>
+<tr>
+<td>mfrom</td>
+<td>친구의 USER_UUID</td>
+</tr>
+<tr>
+<td>mid</td>
+<td>친구의 닉네임</td>
+</tr>
+<tr>
+<td>mmuuid</td>
+<td>친구의 USER_UUID</td>
+</tr>
+<tr>
+<td>pattern_uuid</td>
+<td>친구의 패턴 UUID</td>
+</tr>
+<tr>
+<td>curdate</td>
+<td>하트터치 송신 시각</td>
+</tr>
+</tbody></table>
+<h3 id='tizen-http-server-2'>하트터치 수신 데이터 (TIZEN, HTTP SERVER)</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>state</td>
+<td>&#39;touch&#39;</td>
+</tr>
+<tr>
+<td>from</td>
+<td>친구의 닉네임</td>
+</tr>
+<tr>
+<td>fromid</td>
+<td>친구의 USER_UUID</td>
+</tr>
+<tr>
+<td>pattern_uuid</td>
+<td>친구의 패턴 UUID</td>
+</tr>
+<tr>
+<td>curdate</td>
+<td>하트터치 송신 시각</td>
+</tr>
+</tbody></table>
+<h2 id='368e85a110'>하트터치업 신호받기</h2><pre class="highlight http tab-http"><code><span class="err">
+</span><span class="nf">POST</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">YOUR-HOST-NAME</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">User-Agent</span><span class="p">:</span> <span class="s">DKDK Service</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"up"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"from"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fromid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>JSON 구조로 송신합니다:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+  </span><span class="err">//ANDROID,</span><span class="w"> </span><span class="err">iOS</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"mstate"</span><span class="p">:</span><span class="s2">"up"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mfrom"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"muuid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mid"</span><span class="p">:</span><span class="s2">"USER_NICKNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pattern_uuid"</span><span class="p">:</span><span class="s2">"PATTERN_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+  </span><span class="err">//TIZEN,</span><span class="w"> </span><span class="err">HTTP</span><span class="w"> </span><span class="err">SERVER</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"up"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"from"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fromid"</span><span class="p">:</span><span class="s2">"USER_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"pattern_uuid"</span><span class="p">:</span><span class="s2">"PATTERN_UUID"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"curdate"</span><span class="p">:</span><span class="s2">"2014-03-01 15:00:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>친구가 터치중인 하트에서 손을 떼면 이 신호를 받습니다.</p>
+<h3 id='android-ios-3'>하트터치업 수신 데이터 (ANDROID, iOS)</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mstate</td>
+<td>&#39;up&#39;</td>
+</tr>
+<tr>
+<td>mfrom</td>
+<td>터치부터 터치업까지의 두근거림 수</td>
+</tr>
+<tr>
+<td>mmuuid</td>
+<td>친구의 USER_UUID</td>
+</tr>
+<tr>
+<td>curdate</td>
+<td>신호 송신 시각</td>
+</tr>
+</tbody></table>
+<h3 id='tizen-http-server-3'>하트터치업 수신 데이터 (TIZEN, HTTP SERVER)</h3>
+<table><thead>
+<tr>
+<th>파라메터</th>
+<th>설명</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>state</td>
+<td>&#39;up&#39;</td>
+</tr>
+<tr>
+<td>from</td>
+<td>터치부터 터치업까지의 두근거림 수</td>
+</tr>
+<tr>
+<td>fromid</td>
+<td>친구의 USER_UUID</td>
+</tr>
+<tr>
+<td>curdate</td>
+<td>신호 송신 시각</td>
+</tr>
+</tbody></table>
 <h1 id='7a4c98d247'>오류 설명</h1>
 <aside class="notice">
 오류발생시 설명입니다.
@@ -1421,6 +1713,7 @@ echo $response;
                 <a href="#" data-language-name="php">php</a>
                 <a href="#" data-language-name="javascript">javascript</a>
                 <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="http">http</a>
           </div>
       </div>
     </div>
