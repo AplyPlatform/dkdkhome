@@ -1289,7 +1289,7 @@ Connection: close
 --------- | -----------
 mstate | 'up'
 mfrom | 터치부터 터치업까지의 두근거림 수
-mmuuid | 친구의 USER_UUID
+muuid | 친구의 USER_UUID
 curdate | 신호 송신 시각
 
 ### 하트터치업 수신 데이터 (TIZEN, HTTP SERVER)
