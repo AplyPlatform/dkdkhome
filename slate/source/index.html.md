@@ -1132,7 +1132,7 @@ Connection: close
   {
     "mstate":"request",
     "mfrom":"USER_NICKNAME",
-    "mmuuid":"USER_UUID",
+    "muuid":"USER_UUID",
     "curdate":"2014-03-01 15:00:00"
   }
 
@@ -1154,7 +1154,7 @@ Connection: close
 --------- | -----------
 mstate | 'request'
 mfrom | 친구의 닉네임
-mmuuid | 친구의 USER_UUID
+muuid | 친구의 USER_UUID
 curdate | 친구요청 송신 시각
 
 ### 친구요청 수신 데이터 (TIZEN, HTTP SERVER)
@@ -1222,7 +1222,7 @@ Connection: close
 mstate | 'touch'
 mfrom | 친구의 USER_UUID
 mid | 친구의 닉네임
-mmuuid | 친구의 USER_UUID
+muuid | 친구의 USER_UUID
 pattern_uuid | 친구의 패턴 UUID
 curdate | 하트터치 송신 시각
 
@@ -1268,7 +1268,6 @@ Connection: close
     "mfrom":5,
     "muuid":"USER_UUID",
     "mid":"USER_NICKNAME",
-    "pattern_uuid":"PATTERN_UUID",
     "curdate":"2014-03-01 15:00:00"
   }
 
@@ -1277,7 +1276,6 @@ Connection: close
     "state":"up",
     "from":5,
     "fromid":"USER_UUID",
-    "pattern_uuid":"PATTERN_UUID",
     "curdate":"2014-03-01 15:00:00"
   }
 
