@@ -2923,34 +2923,34 @@ fieldset:disabled a.btn {
     box-shadow: 0 0 0 .2rem rgba(34, 34, 34, .5);
 }
 
-.btn-brand {
+.btn-dkdk {
     color: #fff;
     background-color: #505cfd;
     border-color: #505cfd;
 }
 
-.btn-brand:hover {
+.btn-dkdk:hover {
     color: #fff;
-    background-color: #2a39fd;
-    border-color: #2a39fd;
+    background-color: #fd5d60;
+    border-color: #fd5d60;
 }
 
-.btn-brand:focus,
-.btn-brand.focus {
+.btn-dkdk:focus,
+.btn-dkdk.focus {
     box-shadow: 0 0 0 .2rem rgba(80, 92, 253, .5);
 }
 
-.btn-brand.disabled,
-.btn-brand:disabled {
+.btn-dkdk.disabled,
+.btn-dkdk:disabled {
     background-color: #505cfd;
     border-color: #505cfd;
 }
 
-.btn-brand:not([disabled]):not(.disabled):active,
-.btn-brand:not([disabled]):not(.disabled).active,
-.show > .btn-brand.dropdown-toggle {
+.btn-dkdk:not([disabled]):not(.disabled):active,
+.btn-dkdk:not([disabled]):not(.disabled).active,
+.show > .btn-dkdk.dropdown-toggle {
     color: #fff;
-    background-color: #1e2dfc;
+    background-color: #ff8090;
     border-color: #1121fc;
     box-shadow: 0 0 0 .2rem rgba(80, 92, 253, .5);
 }
@@ -5615,7 +5615,7 @@ tbody.collapse.show {
 .badge-brand[href]:focus {
     color: #fff;
     text-decoration: none;
-    background-color: #1e2dfc;
+    background-color: #ff8090;
 }
 
 .badge-new-gray {
@@ -7081,7 +7081,7 @@ a.bg-brand:hover,
 a.bg-brand:focus,
 button.bg-brand:hover,
 button.bg-brand:focus {
-    background-color: #1e2dfc !important;
+    background-color: #ff8090 !important;
 }
 
 .bg-new-gray {
@@ -10334,7 +10334,7 @@ a.text-black:focus {
 
 a.text-brand:hover,
 a.text-brand:focus {
-    color: #1e2dfc !important;
+    color: #ff8090 !important;
 }
 
 .text-new-gray {
