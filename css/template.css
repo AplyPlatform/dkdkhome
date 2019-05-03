@@ -446,7 +446,7 @@ h6,
 }
 
 .dkdkcoral {color:#ff8090;}
-.slidelogo {width:150px; height:68px; background:url('../img/logo-2heart.png') no-repeat; background-size:150px 68px;}
+.slidelogo {margin:0 auto; width:150px; height:68px; background:url('../img/logo-2heart.png') no-repeat; background-size:150px 68px;}
 
 .display-1 {
     font-size: 6rem;
