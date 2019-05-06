@@ -53,6 +53,27 @@
                              monospace;
 }
 
+.center {
+  margin: auto;
+  width: 50%;
+  border: 0px;
+}
+
+#animation_area {
+  background:url('../img/phone.png');
+  width:320px;
+  height:640px;
+  text-align: center !important;
+}
+
+#heart_1 {
+  position: absolute;
+}
+
+#heart_2 {
+  position: absolute;
+}
+
 *,
 *::before,
 *::after {
