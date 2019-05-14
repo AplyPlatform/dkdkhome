@@ -8,7 +8,10 @@ function myMove() {
   var pos_2 = HEART_2_POS;
   var id = setInterval(frame, 8);
 
-  heart_1.style.left = "150px";
+
+  heart_1.css({position:'absolute'});
+
+
 
   function frame() {
     if (pos_1 == HEART_2_POS) {
@@ -19,6 +22,8 @@ function myMove() {
       pos_2--;
     }
 
+    var x = $("#heart_2").position();
+    heart_1.style.left = (x.left - 20) + "px";
     heart_1.style.top = pos_1 + 'px';
     heart_2.style.top = pos_2 + 'px';
   }
