@@ -7,9 +7,6 @@ function myMove() {
   var pos_1 = HEART_1_POS;
   var pos_2 = HEART_2_POS;
   var id = setInterval(frame, 8);
-
-  heart_1.css({position:'absolute'});
-
   function frame() {
     if (pos_1 == HEART_2_POS) {
       pos_1 = HEART_1_POS;
