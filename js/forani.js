@@ -24,3 +24,7 @@ function myMove() {
 }
 
 myMove();
+
+function GATAGM(label, category, language) {
+  gtag('event', 'click', {'event_category' : category, 'event_label' : label, 'language' : language});
+}
