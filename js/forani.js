@@ -26,11 +26,10 @@ function myMove() {
 myMove();
 
 function GATAGM(label, category, language) {
-  ga('send', {
-      'hitType':'event' ,
-      'eventCategory' : category,
-      'eventAction' : label,
-      'eventValue' : language
-    }
-  );
+  gtag(
+      'event',
+      'event_category' : category,
+      'event_label' : label,
+      'value' : language
+    );
 }
