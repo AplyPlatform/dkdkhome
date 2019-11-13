@@ -27,9 +27,9 @@ myMove();
 
 function GATAGM(label, category, language) {
   gtag(
-      'event',
-      'event_category' : category,
-      'event_label' : label,
-      'value' : language
+      'event', label + "_" + language, {
+        'event_category' : category,
+        'event_label' : label
+      }
     );
 }
