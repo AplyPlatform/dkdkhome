@@ -35,6 +35,6 @@ function GATAGM(label, category, language) {
 
   mixpanel.track(
     label + "_" + language,
-    {"event_category": category, "event_label", label}
+    {"event_category": category, "event_label": label}
   );
 }
